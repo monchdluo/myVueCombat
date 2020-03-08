@@ -47,6 +47,7 @@ export default {
   left 0
   display flex
   justify-content space-around
+  background-color #fff
   div
     display flex
     flex-direction column

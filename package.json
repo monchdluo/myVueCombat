@@ -12,6 +12,7 @@
     "mint-ui": "^2.2.13",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
+    "swiper": "^5.3.6",
     "vant": "^2.5.3",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6"
@@ -40,7 +41,32 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-trailing-spaces": "off",
+      "indent": "off",
+      "spaced-comment": "off",
+      "no-new": "off",
+      "key-spacing": "off",
+      "comma-dangle": "off",
+      "eol-last": "off",
+      "quotes": "off",
+      "semi": "off",
+      "keyword-spacing": "off",
+      "space-before-blocks": "off",
+      "comma-spacing": "off",
+      "space-before-function-paren": "off",
+      "space-infix-ops": "off",
+      "no-multiple-empty-lines": "off",
+      "block-spacing": "off",
+      "padded-blocks": "off",
+      "arrow-spacing": "off",
+      "no-sequences": "off",
+      "no-unused-expressions": "off",
+      "no-multi-spaces": "off",
+      "no-unused-vars": "off",
+      "vue/no-side-effects-in-computed-properties": "off",
+      "vue/no-parsing-error": "off"
+    }
   },
   "browserslist": [
     "> 1%",
