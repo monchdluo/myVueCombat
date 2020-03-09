@@ -1,14 +1,17 @@
 <template>
   <div class="homeBox">
+    <!-- home头部 -->
     <header class="home_header">
       <span class="wyyx">网易严选</span>
       <span>
+        <van-icon name="search" class="search_icon" />
         <input type="text" placeholder="搜索商品,共24026款好物" class="inp">
       </span>
       <span>
         <p class="btn">登录</p>
       </span>
     </header>
+    <!-- home导航栏 -->
     <nav class="home_nav">
       <div class="inner-nav">
         <van-tabs v-model="active">
@@ -37,102 +40,21 @@
         <van-swipe-item><img src="./images/swiper/swiper5.webp" alt=""></van-swipe-item>
         <van-swipe-item><img src="./images/swiper/swiper6.webp" alt=""></van-swipe-item>
       </van-swipe>
-      <!-- 网易品牌 -->
+      <!-- 网易品牌    -->
       <div class="home_brand">
-        <span>
-          <van-icon name="smile-o" color="red" size="16" />
-          <span>网易自营品牌</span>
+        <span v-for="(policy,index) in home.policyDescList" :key="index">
+          <img :src="policy.icon" alt="">
+          <span>{{policy.desc}}</span>
         </span>
-        <span>
-          <van-icon name="certificate" color="red" size="16" />
-          <span>30天无忧退货</span>
-        </span>
-        <span>
-          <van-icon name="after-sale" color="red" size="16" />
-          <span>48小时快速退款</span>
-        </span>
-
       </div>
       <!-- 商品列表 -->
       <div class="home_shopList">
-        <div class="shopList_item">
+        <div class="shopList_item" v-for="(kingKong,index) in home.kingKongModule.kingKongList" :key="index">
           <a href="javascript:">
             <div class="shopList_img">
-              <img src="./images/list/01.png" alt="">
+              <img :src="kingKong.picUrl" alt="">
             </div>
-            <span>新品首发</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/02.png" alt="">
-            </div>
-            <span>居家生活</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/03.png" alt="">
-            </div>
-            <span>服饰鞋包</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/04.png" alt="">
-            </div>
-            <span>美食酒水</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/05.png" alt="">
-            </div>
-            <span>个护清洁</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/06.png" alt="">
-            </div>
-            <span>母婴亲子</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/07.png" alt="">
-            </div>
-            <span>运动旅行</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/08.png" alt="">
-            </div>
-            <span>数码家电</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/09.png" alt="">
-            </div>
-            <span>全球特色</span>
-          </a>
-        </div>
-        <div class="shopList_item">
-          <a href="javascript:">
-            <div class="shopList_img">
-              <img src="./images/list/10.png" alt="">
-            </div>
-            <span>好货抄底</span>
+            <span>{{kingKong.text}}</span>
           </a>
         </div>
       </div>
@@ -261,11 +183,157 @@
                 <span class="item">{{ timeData.seconds }}</span>
               </template>
             </van-count-down>
+            <span class="gengduo">更多 ></span>
           </div>
           <div class="box_content">
-
+            <div class="box_content_item">
+              <img src="./images/time/01.webp" alt="">
+              <div>
+                <span class="red_span">￥29.9</span>
+                <span class="hui_span">￥30</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/01.webp" alt="">
+              <div>
+                <span class="red_span">￥29.9</span>
+                <span class="hui_span">￥30</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/01.webp" alt="">
+              <div>
+                <span class="red_span">￥29.9</span>
+                <span class="hui_span">￥30</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/01.webp" alt="">
+              <div>
+                <span class="red_span">￥29.9</span>
+                <span class="hui_span">￥30</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/01.webp" alt="">
+              <div>
+                <span class="red_span">￥29.9</span>
+                <span class="hui_span">￥30</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/01.webp" alt="">
+              <div>
+                <span class="red_span">￥29.9</span>
+                <span class="hui_span">￥30</span>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      <!-- 新品首发 -->
+      <div class="home_new">
+        <div class="new_box">
+          <div class="box_top">
+            <span>新品首发</span>
+            <span class="gengduo">更多 ></span>
+          </div>
+          <div class="box_content">
+            <div class="box_content_item">
+              <img src="./images/time/02.webp" alt="">
+              <div>
+                <div class="item_div">复工装备随身防护 日本空气净化除菌卡</div>
+                <span class="red_span">￥79</span>
+                <span class="red_span2">满99减10</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/02.webp" alt="">
+              <div>
+                <div class="item_div">复工装备随身防护 日本空气净化除菌卡</div>
+                <span class="red_span">￥79</span>
+                <span class="red_span2">满99减10</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/02.webp" alt="">
+              <div>
+                <div class="item_div">复工装备随身防护 日本空气净化除菌卡</div>
+                <span class="red_span">￥79</span>
+                <span class="red_span2">满99减10</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/02.webp" alt="">
+              <div>
+                <div class="item_div">复工装备随身防护 日本空气净化除菌卡</div>
+                <span class="red_span">￥79</span>
+                <span class="red_span2">满99减10</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/02.webp" alt="">
+              <div>
+                <div class="item_div">复工装备随身防护 日本空气净化除菌卡</div>
+                <span class="red_span">￥79</span>
+                <span class="red_span2">满99减10</span>
+              </div>
+            </div>
+            <div class="box_content_item">
+              <img src="./images/time/02.webp" alt="">
+              <div>
+                <div class="item_div">复工装备随身防护 日本空气净化除菌卡</div>
+                <span class="red_span">￥79</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 断货补单王 -->
+      <div class="home_goods">
+        <div class="goods_item">
+          <div class="goods_item_content">
+            <div class="item_div_one">断货补单王</div>
+            <div class="item_div_two">补仓疯抢中</div>
+            <img src="./images/time/03.png" alt="">
+            <img src="./images/time/03.png" alt="">
+          </div>
+        </div>
+        <div class="goods_item">
+          <div class="goods_item_content">
+            <div class="item_div_one">断货补单王</div>
+            <div class="item_div_two">补仓疯抢中</div>
+            <img src="./images/time/03.png" alt="">
+            <img src="./images/time/03.png" alt="">
+          </div>
+        </div>
+        <div class="goods_item">
+          <div class="goods_item_content">
+            <div class="item_div_one">断货补单王</div>
+            <div class="item_div_two">补仓疯抢中</div>
+            <img src="./images/time/03.png" alt="">
+            <img src="./images/time/03.png" alt="">
+          </div>
+        </div>
+        <div class="goods_item">
+          <div class="goods_item_content">
+            <div class="item_div_one">断货补单王</div>
+            <div class="item_div_two">补仓疯抢中</div>
+            <img src="./images/time/03.png" alt="">
+            <img src="./images/time/03.png" alt="">
+          </div>
+        </div>
+      </div>
+      <!-- home底部 -->
+      <div class="home_footer">
+        <div class="footer_top">
+          <span class="footer_div_span a">下载APP</span>
+          <span class="footer_div_span">电脑版</span>
+        </div>
+        <p>
+          <span>网易公司版权所有 © 1997-2020</span>
+          <span>食品经营许可证：JY13301080111719</span>
+        </p>
       </div>
     </div>
   </div>
@@ -276,13 +344,15 @@
 // 引入Swiper的样式
 import 'swiper/css/swiper.css'
 import { Icon, Tab, Tabs, Swipe, SwipeItem, CountDown } from 'vant'
+// 引入Vuex
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   data() {
     return {
       active: 0,
       ellipsis: false,
-      time: 30 * 60 * 60 * 1000
+      time: 3 * 60 * 60 * 1000
     }
   },
   components: {
@@ -293,6 +363,12 @@ export default {
     [Swipe.name]: Swipe,
     [SwipeItem.name]: SwipeItem,
     [CountDown.name]: CountDown
+  },
+  // 计算属性
+  computed: {
+    ...mapState({
+      home: state => state.home.home
+    })
   }
 }
 </script>
@@ -305,13 +381,19 @@ export default {
   flex-direction column
   .home_header
     width 100%
-    height 40px
+    height 44px
     display flex
     justify-content space-around
     align-items center
-    margin-top 8px
+    position fixed
+    background-color #fff
+    z-index 99
     .wyyx
       font-size 18px
+    .search_icon
+      margin-left 2px
+      position absolute
+      top 14px
     .inp
       background-color #EDEDED
       width 220px
@@ -325,8 +407,11 @@ export default {
       border-radius 4px
       color red
   .home_nav
-    position relative
+    position fixed
+    top 43px
     width 100%
+    background-color #fff
+    z-index 99
     .inner-nav
       width 80%
       .van-tabs__line
@@ -356,6 +441,7 @@ export default {
       line-height 150px
       text-align center
       background-color #39a9ed
+      margin-top 72px
       img
         width 100%
         height 100%
@@ -364,13 +450,15 @@ export default {
       height 36px
       display flex
       justify-content space-around
+      img
+        display inline-block
+        width 20px
+        height 20px
+        vertical-align middle
       span
         line-height 36px
         font-size 10px
         vertical-align middle
-        i
-          vertical-align middle
-          margin-right 2px
     .home_shopList
       width 100%
       height 170px
@@ -518,11 +606,11 @@ export default {
     .home_hot
       width 100%
       height 355px
+      border-bottom 10px solid #EEEEEE
       .hot_box
         width 100%
         padding 0 10px
         box-sizing border-box
-        border-bottom 10px solid #EEEEEE
         .box_top
           height 50px
           line-height 50px
@@ -586,6 +674,7 @@ export default {
     .home_time
       width 100%
       height 350px
+      border-bottom 10px solid #EEEEEE
       .time_box
         width 100%
         height 100%
@@ -597,6 +686,9 @@ export default {
           line-height 50px
           span
             margin-right 10px
+          .gengduo
+            float right
+            font-size 14px
           .van-count-down
             display inline-block
           .item
@@ -610,7 +702,130 @@ export default {
             border-radius 3px
         .box_content
           width 100%
-          height 100%
+          height 86%
           box-sizing border-box
           padding 0 5px 0 10px
+          .box_content_item
+            width 32%
+            height 150px
+            font-size 12px
+            float left
+            margin-left 4px
+            img
+              width 108px
+              height 108px
+              background-color #F5F5F5
+              margin-bottom 10px
+            .red_span
+              color red
+              margin-right 5px
+              margin-left 5px
+            .hui_span
+              color #7F7F7F
+    .home_new
+      width 100%
+      height 460px
+      border-bottom 10px solid #EEEEEE
+      .new_box
+        width 100%
+        height 100%
+        .box_top
+          width 100%
+          height 50px
+          box-sizing border-box
+          padding 0 10px 0 10px
+          line-height 50px
+          span
+            margin-right 10px
+          .gengduo
+            float right
+            font-size 14px
+        .box_content
+          width 100%
+          height 90%
+          box-sizing border-box
+          padding 0 5px 0 10px
+          .box_content_item
+            width 32%
+            height 196px
+            font-size 12px
+            float left
+            margin-left 4px
+            margin-bottom 10px
+            img
+              width 108px
+              height 108px
+              background-color #F5F5F5
+              margin-bottom 8px
+            .item_div
+              width 90%
+              height 34px
+              line-height 1.5
+              display -webkit-box
+              -webkit-box-orient vertical
+              -webkit-line-clamp 2
+              overflow hidden
+            .red_span
+              color red
+              display block
+              font-size 16px
+              margin 5px 0
+            .red_span2
+              display inline-block
+              border 1px solid red
+              border-radius 8px
+              font-size 8px
+              padding 2px
+              color red
+    .home_goods
+      width 100%
+      height 288px
+      box-sizing border-box
+      padding 6px 10px 15px
+      border-bottom 10px solid #EEEEEE
+      .goods_item
+        width 49%
+        height 132px
+        background-color #F6F6F6
+        overflow hidden
+        float left
+        margin 0 3px 2px 0
+        .goods_item_content
+          margin 10px 0 0 10px
+          .item_div_one
+            padding 5px 0
+          .item_div_two
+            font-size 10px
+            color #7F7F7F
+          img
+            width 48%
+            height 48%
+            margin-right 2px
+    .home_footer
+      width 100%
+      height 134px
+      background-color #414141
+      text-align center
+      padding 24px 0 14px
+      .footer_top
+        text-align center
+        margin-bottom 26px
+        .footer_div_span
+          display inline-block
+          width 86px
+          height 30px
+          border 1px solid #999
+          border-radius 5px
+          text-align center
+          line-height 30px
+          font-size 10px
+          color #fff
+        .a
+          margin-right 30px
+      p
+        color #999
+        font-size 10px
+        span
+          display block
+          margin 5px
 </style>

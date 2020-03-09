@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App.vue'
 // 引入router路由器
 import router from './router'
+// 引入store
+import store from './store'
 // 引入适配
 import '../tools/rem'
 // 设置浏览器控制台是否提示信息
@@ -16,5 +18,7 @@ new Vue({
   },
   template: '<App />',
   // 注册路由器
-  router
+  router,
+  // 注册仓库
+  store
 })

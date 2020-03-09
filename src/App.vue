@@ -12,6 +12,9 @@ export default {
   // 注册组件
   components: {
     FooterNav
+  },
+  mounted() {
+    this.$store.dispatch('getHome')
   }
 }
 </script>
