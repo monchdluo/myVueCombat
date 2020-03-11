@@ -2,13 +2,13 @@
   <div class="main">
     <!-- 头部 -->
     <header class="header">
-      <a href="#" class="home">
-        <i class="iconfont icon-shouye"></i>
+      <a href="#" class="home" @click="goto('/home')">
+        <van-icon name="wap-home-o" />
       </a>
       <h1 class="title">值得买</h1>
       <div class="right">
-        <a href="#">
-          <i class="iconfont icon-sousuo search"></i>
+        <a href="#" class="searchBox">
+          <van-icon name="search" size="30" />
         </a>
         <a href="#">
           <i class="iconfont icon-gouwuche gouwuche"></i>
@@ -24,146 +24,13 @@
       </div>
       <div class="nav-bottom" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
         <div class="nav-bottom-con" id="container">
-          <div class="nav-item">
+          <div class="nav-item" v-for="(bs,index) in buySwiper" :key="index">
             <div class="nav-item-con">
               <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/e21381b7e1e7caebbe72488db9542163.gif?imageView&amp;quality=65&amp;thumbnail=120x120" />
+                <img :src="bs.picUrl" />
                 <div class>
-                  <div class="item-title">9.9超值</div>
-                  <div class="nav-text">定价直降</div>
-                </div>
-              </a>
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/1d94b7dcbf10a3e836bab65729eeaaad.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">明星商品</div>
-                  <div class="nav-text">百万粉丝之选</div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-item-con">
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/b324d0c8ec86ece047d5bd853b840657.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">员工精选</div>
-                  <div class="nav-text">每天1款内部价</div>
-                </div>
-              </a>
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/9d8114ce4ef435ceac5e82120efeec4c.png?imageView&amp;quality=65&amp;thumbnail=120x120" class />
-                <div class>
-                  <div class="item-title">晒单</div>
-                  <div class="nav-text">入选就有红包</div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-item-con">
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/e92a567f96b94dcea29eafea9ab42440.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">好物大赏</div>
-                  <div class="nav-text">精选主题榜单</div>
-                </div>
-              </a>
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/8eb0b83f475b468a4624342d24684452.gif?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">新品快报</div>
-                  <div class="nav-text">防疫物资上新</div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-item-con">
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/84395807297dbc88f6569e16960695f1.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">甄选家</div>
-                  <div class="nav-text">爆品免费试用</div>
-                </div>
-              </a>
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/f7eabd045aeaf6ea4379abdb7f45ad8e.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">好吃研究所</div>
-                  <div class="nav-text">时令美食抢先尝</div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-item-con">
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/17f2bc11d23d2be6b8d8fdf066bb68c9.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">特色系列</div>
-                  <div class="nav-text">发现格调好货</div>
-                </div>
-              </a>
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/d98cef378330167ef79c5f956814836e.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class="m-detail">
-                  <div class="item-title">选购指南</div>
-                  <div class="nav-text">破解选择困难</div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-item-con">
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/8a7216b5820d09e04129ef6b59ad6eb9.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">防疫手册</div>
-                  <div class="nav-text">超硬核防疫指南</div>
-                </div>
-              </a>
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/321dac9cf0fa0edd8da0092a753531f3.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">HOME</div>
-                  <div class="nav-text">实景家居专栏</div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-item-con">
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/e34c41eb0814443ab27850c4c516ab10.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">每日穿搭</div>
-                  <div class="nav-text">时尚买手力荐</div>
-                </div>
-              </a>
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/e29bd9f1a9f61e37b969d59566ea15b2.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">工厂考察团</div>
-                  <div class="nav-text">探访严选工厂</div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="nav-item">
-            <div class="nav-item-con">
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/2e038945352b0a8e7a339741b8c5f229.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">全球好物</div>
-                  <div class="nav-text">0关税即时达</div>
-                </div>
-              </a>
-              <a href="javascript:;" class="item">
-                <img src="https://yanxuan.nosdn.127.net/4face74511956035fadcdb249d173572.png?imageView&amp;quality=65&amp;thumbnail=120x120" />
-                <div class>
-                  <div class="item-title">乡间好物</div>
-                  <div class="nav-text">公益扶贫专区</div>
+                  <div class="item-title">{{bs.mainTitle}}</div>
+                  <div class="nav-text">{{bs.viceTitle}}</div>
                 </div>
               </a>
             </div>
@@ -278,6 +145,8 @@
   </div>
 </template>
 <script>
+import { Icon } from 'vant'
+import { mapState } from 'vuex'
 export default {
   name: 'Buy',
   data() {
@@ -290,7 +159,24 @@ export default {
       disX: 0
     }
   },
+  components: {
+    [Icon.name]: Icon
+  },
+  async mounted() {
+    await this.$store.dispatch('getBuySwiper')
+    await this.$store.dispatch('getBuy')
+    console.log(this.buy)
+  },
+  computed: {
+    ...mapState({
+      buySwiper: state => state.buy.buySwiper,
+      buy: state => state.buy.buy
+    })
+  },
   methods: {
+    goto(path) {
+      this.$router.replace(path)
+    },
     touchStart(event) {
       document.getElementById('container').style.transition = null
       this.startX = event.targetTouches[0].clientX
@@ -357,12 +243,13 @@ export default {
     .title
       font-size 18px
       line-height 50px
+      margin-right 46px
     .right
-      .search
-        font-size 32px
-        margin-right 12px
-        vertical-align middle
-        color #000
+      position relative
+      .searchBox
+        position absolute
+        top 6px
+        left -50px
       .gouwuche
         font-size 22px
         color #000
@@ -403,15 +290,17 @@ export default {
         height 60px
       .nav-bottom-con
         // position absolute
-        width 355px * 8
+        width 370px * 2
         overflow hidden
+        display flex
+        flex-wrap wrap
         .nav-item
           float left
           width 88.75px
-          height 270px
+          height 133px
           .nav-item-con
             width 90px
-            height 235px
+            height 117px
             padding 18px 3px 3px
             box-sizing border-box
             .item

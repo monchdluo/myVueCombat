@@ -1,44 +1,71 @@
 <template>
   <div class="homeBox">
+
     <!-- home头部 -->
     <header class="home_header">
       <span class="wyyx">网易严选</span>
+      <router-link to="/search">
+        <span>
+          <van-icon name="search" class="search_icon" />
+          <input type="text" placeholder="搜索商品,共24026款好物" class="inp">
+        </span>
+      </router-link>
       <span>
-        <van-icon name="search" class="search_icon" />
-        <input type="text" placeholder="搜索商品,共24026款好物" class="inp">
-      </span>
-      <span>
-        <p class="btn">登录</p>
+        <router-link to="/personal">
+          <p class="btn">登录</p>
+        </router-link>
       </span>
     </header>
     <!-- home导航栏 -->
     <nav class="home_nav">
       <div class="inner-nav">
-        <van-tabs v-model="active">
+        <van-tabs v-model="active" @click="goShops('/shops')">
           <van-tab title="推荐"></van-tab>
-          <van-tab title="居家生活"></van-tab>
-          <van-tab title="服饰鞋包"></van-tab>
-          <van-tab title="美食酒水"></van-tab>
-          <van-tab title="个护清洁"></van-tab>
-          <van-tab title="母婴亲子"></van-tab>
-          <van-tab title="运动旅行"></van-tab>
-          <van-tab title="数码家电"></van-tab>
-          <van-tab title="全球特色"></van-tab>
+          <div v-for="(nav,index) in homeNav" :key="index">
+            <van-tab :title="nav.name"></van-tab>
+          </div>
+
         </van-tabs>
       </div>
+
       <span class="down">
-        <van-icon name="arrow-down" size="20" color="#aaa" />
+        <van-icon name="arrow-down" size="20" color="#aaa" class="down_open" />
       </span>
     </nav>
     <div class="home_content">
       <!-- 轮播图 -->
-      <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white" height="185">
-        <van-swipe-item><img src="./images/swiper/swiper1.webp" alt=""></van-swipe-item>
-        <van-swipe-item><img src="./images/swiper/swiper2.webp" alt=""></van-swipe-item>
-        <van-swipe-item><img src="./images/swiper/swiper3.webp" alt=""></van-swipe-item>
-        <van-swipe-item><img src="./images/swiper/swiper4.webp" alt=""></van-swipe-item>
-        <van-swipe-item><img src="./images/swiper/swiper5.webp" alt=""></van-swipe-item>
-        <van-swipe-item><img src="./images/swiper/swiper6.webp" alt=""></van-swipe-item>
+      <van-swipe class="my-swipe swppp" :autoplay="3000" indicator-color="white">
+        <van-swipe-item>
+          <div class="outer">
+            <img src="./images/swiper/swiper1.webp" alt="">
+          </div>
+        </van-swipe-item>
+        <van-swipe-item>
+          <div class="outer">
+            <img src="./images/swiper/swiper2.webp" alt="">
+          </div>
+        </van-swipe-item>
+        <van-swipe-item>
+          <div class="outer">
+            <img src="./images/swiper/swiper3.webp" alt="">
+          </div>
+        </van-swipe-item>
+        <van-swipe-item>
+          <div class="outer">
+            <img src="./images/swiper/swiper4.webp" alt="">
+          </div>
+        </van-swipe-item>
+        <van-swipe-item>
+          <div class="outer">
+            <img src="./images/swiper/swiper5.webp" alt="">
+          </div>
+        </van-swipe-item>
+        <van-swipe-item>
+          <div class="outer">
+            <img src="./images/swiper/swiper6.webp" alt="">
+          </div>
+        </van-swipe-item>
+
       </van-swipe>
       <!-- 网易品牌    -->
       <div class="home_brand">
@@ -48,9 +75,9 @@
         </span>
       </div>
       <!-- 商品列表 -->
-      <div class="home_shopList">
+      <div class="home_shopList" v-if="home.kingKongModule">
         <div class="shopList_item" v-for="(kingKong,index) in home.kingKongModule.kingKongList" :key="index">
-          <a href="javascript:">
+          <a href="javascript:" @click="goto('/shoplist')">
             <div class="shopList_img">
               <img :src="kingKong.picUrl" alt="">
             </div>
@@ -352,7 +379,8 @@ export default {
     return {
       active: 0,
       ellipsis: false,
-      time: 3 * 60 * 60 * 1000
+      time: 3 * 60 * 60 * 1000,
+      show: false
     }
   },
   components: {
@@ -367,8 +395,19 @@ export default {
   // 计算属性
   computed: {
     ...mapState({
-      home: state => state.home.home
+      home: state => state.home.home,
+      homeNav: state => state.home.homeNav
     })
+  },
+  methods: {
+    goto(path) {
+      this.$router.replace(path)
+    },
+    goShops(path) {
+      setTimeout(() => {
+        this.$router.replace(path)
+      }, 200)
+    }
   }
 }
 </script>
@@ -430,6 +469,9 @@ export default {
           margin-right -2px
           text-align center
     .down
+      display inline-block
+      width 30px
+      height 30px
       position absolute
       right 20px
       top 5px
@@ -441,7 +483,9 @@ export default {
       line-height 150px
       text-align center
       background-color #39a9ed
-      margin-top 72px
+    .swppp
+      height 185px
+      margin-top 80px
       img
         width 100%
         height 100%
